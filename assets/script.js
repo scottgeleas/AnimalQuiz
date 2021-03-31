@@ -1,12 +1,10 @@
-// data attributes 
-// local storage
-// add array of questions
+let startBtn = document.querySelector("#startBtn");
+let quizBox = document.querySelector("#quizBox");
+let timerEl = document.querySelector("#timer");
 
+let currentTime = parseInt(timerEl.textContent);
 
-// add event listener for start button
- let startBtn = document.querySelector("#startBtn");
- let quizBox = document.querySelector("#quizBox");
- let questionArray = [
+let questionArray = [
   {
     question: "How long can a snail sleep?",
     answers: [
@@ -38,26 +36,81 @@
     correctAnswer: "chicken"
   },
   {
-      question: "Which animal breathes through their skin?",
-      answers: [
-       "frog",
-       "cat",
-       "spider",
-       "sheep"
-      ],
-      correctAnswer: "frog"
+    question: "Which animal breathes through their skin?",
+    answers: [
+      "frog",
+      "cat",
+      "spider",
+      "sheep"
+    ],
+    correctAnswer: "frog"
+  },
+  {
+    question: "What country is the only native home for lemurs?",
+    answers: [
+      "New Zealand",
+      "Papua New Guinea",
+      "Solomon Islands",
+      "Madagascar"
+    ],
+    correctAnswer: "Madagascar"
+  },
+  {
+    question: "Which animal is a Portuguese Man O War?",
+    answers: [
+      "snake",
+      "crab",
+      "jellyfish",
+      "stingray"
+    ],
+    correctAnswer: "jellyfish"
   }
 ];
-startBtn.addEventListener("click" , startQuiz);
+startBtn.addEventListener("click", startQuiz);
 
 // start function
 function startQuiz() {
   startBtn.style.display = "none";
+
+  setInterval(function () {
+    currentTime--;
+    timerEl.textContent = currentTime;
+  }, 1000)
+
+  // calls generateElements to display the FIRST question
   generateElements(0);
 }
 
+// renders the Question text and Answers
+function generateElements(questionIndex) {
+  let questionEl = document.createElement("h2");
+
+  // change the text of the created H2 to the value of "question" of the question object
+  questionEl.textContent = questionArray[questionIndex].question;
+  quizBox.append(questionEl);
+
+  // loop through each of the "answers"
+  questionArray[questionIndex].answers.forEach((answer) => {
+    // for each single answer, we do this:
+    let answerEl = document.createElement("h3");
+    answerEl.textContent = answer;
+
+    // we give the h3 an extra attribute called "question-index", with value equals to questionIndex
+    answerEl.setAttribute("question-index", questionIndex);
+    // we give the h3 an extra attribute called "answer", with value equals to answer
+    answerEl.setAttribute("answer", answer);
+    // we set an event listener that listens for a "click" action on this h3 element
+    answerEl.addEventListener("click", nextQuestion);
+
+    quizBox.append(answerEl);
+  })
+}
+
+// displays the NEXT question of whatever was clicked on
 function nextQuestion(event) {
+  // the local questionIndex will be the same as the generateElemnets questionIndex
   let questionIndex = parseInt(event.target.getAttribute("question-index"), 10)
+
   let answer = event.target.getAttribute("answer");
   let question = questionArray[questionIndex];
   console.log('clicked answer', answer, question.correctAnswer)
@@ -67,41 +120,31 @@ function nextQuestion(event) {
     let correctEl = document.createElement("h4");
     correctEl.textContent = "Correct!";
     quizBox.append(correctEl);
-  } else {
-      let wrongEl = document.createElement("h4");
-      wrongEl.textContent = "Wrong!";
-      quizBox.append(wrongEl);
+    function hideElement() {
+      correctEl.remove();
     }
-  
+    setTimeout(hideElement, 1000);
+  } else {
+    let wrongEl = document.createElement("h4");
+    wrongEl.textContent = "Wrong!";
+    quizBox.append(wrongEl);
+    function hideElement() {
+      wrongEl.remove();
+    }
+    setTimeout(hideElement, 1000);
+    currentTime -= 5;
+  }
+
+
+
+
+
+  // if ((currentTime <= 0) || (questionIndex > 5))
+  //   endQuiz()
 }
 
-function generateElements(questionIndex) {
-  let questionEl = document.createElement("h2");
-  questionEl.textContent = questionArray[questionIndex].question;
-  quizBox.append(questionEl);
-
-  questionArray[questionIndex].answers.forEach((answer, index) => {
-    let answerEl = document.createElement("h3");
-    answerEl.textContent = answer;
-    answerEl.setAttribute("question-index", questionIndex);
-    answerEl.setAttribute("answer", answer);
-    answerEl.addEventListener("click" , nextQuestion);
-    quizBox.append(answerEl); 
-  })
-}
-
-
-
-// let myQuestion = questionArray[0];
-
-
-//     questionArray[0].question;
-   
-//    questionArray[0].answers.b;
-
-//    questionArray[0].correctAnswer;
-
-
-
-
-
+// end function
+// function endQuiz {
+//   console.log("end")
+// }
+//  validate timer

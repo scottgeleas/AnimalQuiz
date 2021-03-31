@@ -1,40 +1,53 @@
-# Code-Quiz
+# Animal Quiz
 
+## Description
 
- ## Description 
+This is a quiz to test your random knowledge of animals. Your goal is to answer as many questions as you can before time runs out. Once you hit the start button, a single question and a timer appear. If you click on the correct answer, it displays "Correct!". If you click on the wrong answer it displays "Wrong!", and you lose five seconds from your timer. When your timer runs out, the quiz disappears, and the save score page appears.
+Enter your initials to save your score. To view the high-scores, click on the high-score button. The high-scores page shows all recent scores on the quiz.
 
+```
+This picture shows a quiz question:
+```
 
- ## Getting Started:
-The page is live at  .
+```
+This picture shows the high-score page:
+```
 
- ## Prerequisites:
-If you want to edit this web page you must have a Github account,    
+## Getting Started:
+
+The page is live at: https://scottgeleas.github.io/AnimalQuiz/.
+
+## Prerequisites:
+
+If you want to edit this web page you must have a Github account,  
 and have also downloaded Visual Studio Code.
 
 - Create a Github account here: [Github](https://github.com/)
 - Download Visual Studio here: [Visual Studio](https://code.visualstudio.com/download/)
-- Repository link: 
+- Repository link: [Animal Quiz](https://github.com/scottgeleas/AnimalQuiz/)
 
- ### Authors:
-```
- Scott Geleas
-```
+### Built With:
 
- ### Built With:
-```
 - HTML
 - CSS
 - Javascript
 - Visual Studio Code
+
+### Authors:
+
+```
+ Scott Geleas
 ```
 
- ### Acknowledgments:
+### Acknowledgments:
+
 ```
 University of New Hampshire Coding Bootcamp
 ```
 
- ### License: 
- ```
+### License:
+
+```
 MIT License
 
 Copyright (c) [2021] [Scott Geleas]]
