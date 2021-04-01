@@ -3,11 +3,38 @@
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    background-color: rgb(168, 250, 212);
+    background-color: rgb(146, 255, 222);
+    margin: 0
 }
 
 h3 {
     border: 2px solid black;
+    border-radius: 20%;
+    text-align: center;
+}
+
+.startBtn {
+    text-align: center;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 800px;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+.aWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: aqua;
+}
+
+.hide {
+    display: none;
 }
