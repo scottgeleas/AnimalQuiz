@@ -93,14 +93,14 @@ let stopTime;
 function startQuiz() {
     startBtn.style.display = "none";
 
-    stopTime = setInterval(function () {
-        if (currentTime <= 0) {
-            endQuiz();
-        } else {
-            currentTime--;
-            timerEl.textContent = currentTime;
-        }
-    }, 1000);
+    // stopTime = setInterval(function () {
+    //     // if (currentTime <= 0) {
+    //     //     endQuiz();
+    //     } else {
+    //         currentTime--;
+    //         timerEl.textContent = currentTime;
+    //     }
+    // }, 1000);
 
     // calls generateElements to display the FIRST question
     generateElements(0);
@@ -116,7 +116,7 @@ function generateElements(questionIndex) {
         questionEl.textContent = questionArray[questionIndex].question;
         quizBox.append(questionEl);
         let answerWrap = document.createElement('div');
-        answerWrap.classList.add('aWrapper');
+        answerWrap.classList.add('answerWrapper');
         // loop through each of the "answers"
         questionArray[questionIndex].answers.forEach((answer) => {
             // for each single answer, we do this:

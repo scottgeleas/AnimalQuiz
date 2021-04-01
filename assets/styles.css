@@ -1,16 +1,43 @@
 * {
     box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
-    background-color: rgb(146, 255, 222);
+    background-color: rgb(255, 234, 167);
     margin: 0
 }
 
-h3 {
-    border: 2px solid black;
-    border-radius: 20%;
+.timer {
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 50px;
+    border: 5px solid #000000;
+    border-radius: 10%;
+    background-color: #d09cfa;
+    width: min-content;
+}
+
+h2 {
+    border: 7px outset #16deec;
+    border-radius: 25%;
     text-align: center;
+    font-size: 46px;
+    background-color: #91f3eb;
+}
+
+h3 {
+    border: 10px outset rgb(120, 240, 120);
+    border-radius: 25%;
+    text-align: center;
+    font-size: 32px;
+    color: #000000;
+    background-color: rgb(177, 245, 177);
+}
+
+h4 {
+    text-align: center;
+    font-size: 24px;
 }
 
 .startBtn {
@@ -27,12 +54,11 @@ h3 {
     min-height: 80vh;
 }
 
-.aWrapper {
+.answerWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: aqua;
 }
 
 .hide {
