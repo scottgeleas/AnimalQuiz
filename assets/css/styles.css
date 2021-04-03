@@ -5,7 +5,7 @@
 
 body {
     margin: 0;
-    background-image: url(./assets/images.jungle.jpg);
+    background-image: url(../images/jungle.jpg);
     width: 100%;
     height: 100vh;
 }
@@ -21,7 +21,8 @@ body {
 }
 
 .vHighscore {
-    background-color: #f1f1f1;
+    background-color: #17d1ff;
+    color: #000000;
     border: 2px solid black;
     border-radius: 10%;
     padding: 5px;

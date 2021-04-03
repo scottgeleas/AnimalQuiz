@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(255, 234, 167);
+}
+
+header {
+    background-color: #17d1ff;
+    width: min-content;
+    white-space: nowrap;
+}
+
+.scores {
+    background-color: #d09cfa;
+    width: min-content;
+    white-space: nowrap;
+}
