@@ -194,7 +194,7 @@ function saveScore(event) {
     localStorage.setItem('highscores', JSON.stringify(scoresArray))
 
 
-    window.location.replace("file:///C:/Users/scott/homework/AnimalQuiz/highScore.html");
+    window.location.href = "https://scottgeleas.github.io/AnimalQuiz/highScore.html";
     
     
 
