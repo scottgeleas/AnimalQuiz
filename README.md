@@ -5,15 +5,10 @@
 This is a quiz to test your random knowledge of animals. Your goal is to answer as many questions as you can before time runs out. Once you hit the start button, a single question and a timer appear. If you click on the correct answer, it displays "Correct!". If you click on the wrong answer it displays "Wrong!", and you lose five seconds from your timer. When your timer runs out, the quiz disappears, and the save score page appears.
 Enter your initials to save your score. To view the high-scores, click on the high-score button. The high-scores page shows all recent scores on the quiz.
 
-```
-This picture shows a quiz question:
-```
-```
-This picture shows the input to save your score:
-```
-```
-This picture shows the high-score page:
-```
+
+This picture shows a quiz question: ![Home](assets/images/home.png)
+This picture shows the input to save your score: ![Input](assets/images/input.png)
+This picture shows the high-score page: ![Highscores](assets/images/highscores.png)
 
 ## Getting Started:
 
