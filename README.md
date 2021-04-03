@@ -8,7 +8,9 @@ Enter your initials to save your score. To view the high-scores, click on the hi
 ```
 This picture shows a quiz question:
 ```
-
+```
+This picture shows the input to save your score:
+```
 ```
 This picture shows the high-score page:
 ```
