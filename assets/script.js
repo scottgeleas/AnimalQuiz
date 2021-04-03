@@ -1,8 +1,13 @@
+let title = document.querySelector("#title")
 let startBtn = document.querySelector("#startBtn");
-let quizBox = document.querySelector("#quizBox");
 let timerEl = document.querySelector("#timer");
+let quizBox = document.querySelector("#quizBox");
 let resultsBox = document.querySelector("#results");
 let currentTime = parseInt(timerEl.textContent);
+let stopTime;
+let save = document.querySelector('#save');
+let scoresArray = [];
+let userScore = 0;
 let questionArray = [
     {
         question: "How long can a snail sleep?",
@@ -86,24 +91,26 @@ let questionArray = [
     },
 ];
 startBtn.addEventListener("click", startQuiz);
+resultsBox.addEventListener("submit", saveScore)
+save.addEventListener('click', saveScore);
 
-let stopTime;
 
 // start function
 function startQuiz() {
     startBtn.style.display = "none";
+    title.classList.add("hide")
 
-    // stopTime = setInterval(function () {
-    //     // if (currentTime <= 0) {
-    //     //     endQuiz();
-    //     } else {
-    //         currentTime--;
-    //         timerEl.textContent = currentTime;
-    //     }
-    // }, 1000);
+    stopTime = setInterval(function () {
+        if (currentTime <= 0) {
+            endQuiz();
+    } else {
+        currentTime--;
+    timerEl.textContent = currentTime;
+}
+    }, 1000);
 
-    // calls generateElements to display the FIRST question
-    generateElements(0);
+// calls generateElements to display the FIRST question
+generateElements(0);
 }
 // renders the Question text and Answers
 function generateElements(questionIndex) {
@@ -117,12 +124,12 @@ function generateElements(questionIndex) {
         quizBox.append(questionEl);
         let answerWrap = document.createElement('div');
         answerWrap.classList.add('answerWrapper');
+
         // loop through each of the "answers"
         questionArray[questionIndex].answers.forEach((answer) => {
             // for each single answer, we do this:
             let answerEl = document.createElement("h3");
             answerEl.textContent = answer;
-
             // we give the h3 an extra attribute called "question-index", with value equals to questionIndex
             answerEl.setAttribute("question-index", questionIndex);
             // we give the h3 an extra attribute called "answer", with value equals to answer
@@ -130,7 +137,7 @@ function generateElements(questionIndex) {
             // we set an event listener that listens for a "click" action on this h3 element
             answerEl.addEventListener("click", nextQuestion);
             answerWrap.append(answerEl);
-            
+
 
         })
         quizBox.append(answerWrap);
@@ -139,7 +146,7 @@ function generateElements(questionIndex) {
 
 // displays the NEXT question of whatever was clicked on
 function nextQuestion(event) {
-    // the local questionIndex will be the same as the generateElemnets questionIndex
+    // the local questionIndex will be the same as the generateElements questionIndex
     let questionIndex = parseInt(event.target.getAttribute("question-index"), 10);
     let answer = event.target.getAttribute("answer");
     let question = questionArray[questionIndex];
@@ -149,12 +156,13 @@ function nextQuestion(event) {
     if (question.correctAnswer === answer) {
         let correctEl = document.createElement("h4");
         correctEl.textContent = "Correct!";
+        userScore++
         quizBox.append(correctEl);
         function hideElement() {
             correctEl.remove();
         }
         setTimeout(hideElement, 1000);
-        // if clicked answer doesn't match answer it displays wrong
+    // or clicked answer doesn't match answer it displays wrong
     } else {
         let wrongEl = document.createElement("h4");
         wrongEl.textContent = "Wrong!";
@@ -165,6 +173,27 @@ function nextQuestion(event) {
         setTimeout(hideElement, 1000);
         currentTime -= 5;
     }
+}
+
+function saveScore(event) {
+    event.preventDefault();
+    let initials = document.querySelector('#results input').value;
+    localStorage.setItem('initials' , initials);
+    localStorage.setItem('score', userScore);
+    let userInitials = localStorage.getItem('initials');
+    let finalScore = localStorage.getItem('score');
+    scoresArray.push(finalScore);
+
+    for (i = 0; i < finalScore.length; i++) {
+    let scores = document.querySelector('ul');
+    scores.append(userInitials);
+    scores.append(finalScore);
+    window.location.replace("file:///C:/Users/scott/homework/AnimalQuiz/highScore.html");
+    }
+    
+
+    
+    
 }
 
 function endQuiz() {

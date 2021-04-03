@@ -13,15 +13,21 @@
     <div class="timer">
         Time:<span id="timer">60</span>
     </div>
+
     <div class="wrapper">
+        <div id ="title" class="titleWrap">
+            <h1>Animal Quiz</h1>
+        </div>
         <div id="startBtn" class="startBtn">
             <button>Start Quiz</button>
         </div>
         <div id="quizBox"></div>
-        <div id="results" class="hide">
-            SOME TEXT
-        </div>
+        <form id="results" class="hide">
+            Enter Initials to save score: <input type="text" name="initials" id="initials" class="initials">
+            <button id="save">Save Score</button>
+        </form>
     </div>
+
     <script src="./assets/script.js"></script>
 </body>
 

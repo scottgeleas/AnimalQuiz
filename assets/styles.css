@@ -4,8 +4,9 @@
 }
 
 body {
-    background-color: rgb(255, 234, 167);
-    margin: 0
+    margin: 0;
+    background-image: url(./images/jungle.jpg);
+    background-size: cover;
 }
 
 .timer {
@@ -16,6 +17,18 @@ body {
     border-radius: 10%;
     background-color: #d09cfa;
     width: min-content;
+}
+
+h1, h2, h3, h4 {
+    padding: 0 10px;
+}
+
+h1 {
+    font-size: 100px;
+    color: #f1f1f1;
+    background-color: #ad1414;
+    border: 7px outset #ff4d40;
+    border-radius: 20%;
 }
 
 h2 {
@@ -36,12 +49,17 @@ h3 {
 }
 
 h4 {
+    margin: 0 auto;
     text-align: center;
     font-size: 24px;
+    width: min-content;
+    border: 3px outset #fc6119;
+    background-color: #ffb342;
 }
 
 .startBtn {
     text-align: center;
+    margin-bottom: 160px;
 }
 
 .wrapper {
@@ -52,6 +70,9 @@ h4 {
     width: 800px;
     margin: 0 auto;
     min-height: 80vh;
+    border: 2px solid #000000;
+    border-radius: 10%;
+    background-color: rgb(255, 234, 167);
 }
 
 .answerWrapper {
