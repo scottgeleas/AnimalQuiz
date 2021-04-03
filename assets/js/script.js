@@ -192,7 +192,7 @@ function saveScore(event) {
         score:userScore,
     });
     localStorage.setItem('highscores', JSON.stringify(scoresArray))
-    window.location.href = "https://scottgeleas.github.io/AnimalQuiz/highScore.html";
+    window.location.replace("https://scottgeleas.github.io/AnimalQuiz/highScore.html");
 }
 
 function endQuiz() {
