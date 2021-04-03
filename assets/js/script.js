@@ -192,10 +192,6 @@ function saveScore(event) {
         score:userScore,
     });
     localStorage.setItem('highscores', JSON.stringify(scoresArray))
-    initials.addEventListener("submit", goTo)
-}
-
-function goTo() {
     window.location.href = "https://scottgeleas.github.io/AnimalQuiz/highScore.html";
 }
 
