@@ -5,8 +5,9 @@
 
 body {
     margin: 0;
-    background-image: url(./images/jungle.jpg);
-    background-size: cover;
+    background-image: url(./assets/images.jungle.jpg);
+    width: 100%;
+    height: 100vh;
 }
 
 .timer {
@@ -17,6 +18,16 @@ body {
     border-radius: 10%;
     background-color: #d09cfa;
     width: min-content;
+}
+
+.vHighscore {
+    background-color: #f1f1f1;
+    border: 2px solid black;
+    border-radius: 10%;
+    padding: 5px;
+    width: min-content;
+    text-align: center;
+    white-space: nowrap;
 }
 
 h1, h2, h3, h4 {

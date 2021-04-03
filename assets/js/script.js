@@ -6,7 +6,7 @@ let resultsBox = document.querySelector("#results");
 let currentTime = parseInt(timerEl.textContent);
 let stopTime;
 let save = document.querySelector('#save');
-let scoresArray = [];
+let scoresArray = localStorage.getItem('highscores');
 let userScore = 0;
 let questionArray = [
     {
@@ -93,6 +93,11 @@ let questionArray = [
 startBtn.addEventListener("click", startQuiz);
 resultsBox.addEventListener("submit", saveScore)
 save.addEventListener('click', saveScore);
+if (scoresArray === null) {
+    scoresArray = [];
+}else {
+    scoresArray = JSON.parse(scoresArray)
+    }
 
 
 // start function
@@ -182,14 +187,15 @@ function saveScore(event) {
     localStorage.setItem('score', userScore);
     let userInitials = localStorage.getItem('initials');
     let finalScore = localStorage.getItem('score');
-    scoresArray.push(finalScore);
+    scoresArray.push({
+        initials,
+        score:userScore,
+    });
+    localStorage.setItem('highscores', JSON.stringify(scoresArray))
 
-    for (i = 0; i < finalScore.length; i++) {
-    let scores = document.querySelector('ul');
-    scores.append(userInitials);
-    scores.append(finalScore);
+
     window.location.replace("file:///C:/Users/scott/homework/AnimalQuiz/highScore.html");
-    }
+    
     
 
     
